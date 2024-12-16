@@ -10,6 +10,10 @@
 
 
 
+https://github.com/user-attachments/assets/53209e41-3c89-4bf6-a5f2-dc53f875c6b8
+
+
+
 ## ④作ったアプリケーション用のIDまたはPasswordがある場合
 
 - なし
