@@ -1,0 +1,388 @@
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    background-color: #f2f2f2;
+    font-family: Arial, sans-serif;
+    font-size: 16px;
+    line-height: 1.5;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+
+.container {
+    flex: 1;
+    padding: 20px;
+    padding-bottom: 70px !important;
+    display: flex;
+    flex-direction: column;
+    overflow-y: scroll;
+    scroll-behavior: smooth;
+}
+
+/* 吹き出し全体のスタイルをリセット */
+.message {
+    display: flex; /* フレックスボックスで配置 */
+    align-items: flex-start; /* 垂直方向で上揃え */
+    margin: 10px 0; /* 吹き出し間隔 */
+
+}
+
+.user-message {
+    align-self: flex-end;
+    background-color: #2D81D8;
+    color: white;
+}
+
+.bot-message {
+    align-self: flex-start;
+    background-color: #f2f2f2;
+}
+
+.chat-form {
+    display: flex;
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    padding: 10px;
+    background-color: white;
+    box-shadow: 0 -1px 5px rgba(0, 0, 0, 0.3);
+    z-index: 1;
+}
+
+.chat-input {
+    flex: 1;
+    border: none;
+    border-radius: 5px;
+    padding: 10px;
+    margin-right: 10px;
+    font-size: 16px;
+}
+
+.chat-send {
+    background-color: #2D81D8;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    padding: 10px 15px;
+    cursor: pointer;
+    font-size: 16px;
+}
+
+.loader {
+    display: none;
+    margin-left: 10px;
+    margin-top: 10px;
+    border: 4px solid #f3f3f3;
+    border-top: 4px solid #2D81D8;
+    border-radius: 50%;
+    width: 20px;
+    height: 20px;
+    animation: spin 2s linear infinite;
+}
+
+@keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+
+/* 全体の基本スタイル */
+body {
+    font-family: 'Noto Sans JP', sans-serif;
+    background-color: #eef4fa;
+    color: #333;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
+
+/* ヘッダー */
+header {
+    background-color: #246dc8;
+    color: white;
+    width: 100%;
+    text-align: center;
+    padding: 10px 0; /* ヘッダーを細く */
+    font-size: 18px; /* 小さめのフォントで上品に */
+    font-weight: bold;
+    box-shadow: 0px 2px 8px rgba(0, 0, 0, 0.1);
+    border-bottom: 2px solid #1b4f99;
+}
+
+/* メインコンテンツ */
+main {
+    flex: 1; /* フッターを下に固定するための空間確保 */
+    width: 90%;
+    max-width: 960px;
+    padding: 20px;
+    box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.1);
+    border-radius: 12px;
+    background-color: white;
+    margin: 20px auto;
+}
+
+/* RATIOイエロー */
+.ratio-yellow {
+    color: #ffcc00; /* RATIOイエロー */
+    font-weight: bold;
+}
+
+/* ログイン画面 */
+#login-section {
+    text-align: center;
+}
+
+/* ログインボタンコンテナ */
+.login-container {
+    display: flex;
+    justify-content: center; /* 中央寄せ */
+    align-items: center;    /* 縦方向も中央寄せ */
+    height: 100vh;          /* 画面全体の高さを基準にする */
+    background-color: #eef4fa; /* 背景色 */
+    margin: 0;
+}
+
+/* ログインボタン */
+#google-login-btn {
+    display: flex;
+    align-items: center; /* ボタン内のアイコンとテキストを縦方向に中央揃え */
+    justify-content: center;
+    padding: 12px 20px;
+    background-color: white; /* 背景色を白に変更 */
+    color: #246dc8; /* RATIOブルーの文字色 */
+    font-size: 16px;
+    font-weight: bold;
+    border: 2px solid #246dc8; /* RATIOブルーのボーダーを追加 */
+    border-radius: 8px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1); /* わずかな影を追加 */
+}
+
+/* ホバー時のスタイル */
+#google-login-btn:hover {
+    background-color: #246dc8; /* ホバー時にRATIOブルーの背景色 */
+    color: white; /* 文字色を白に変更 */
+}
+
+/* Googleアイコン */
+.google-icon {
+    width: 20px; /* アイコンのサイズ */
+    height: 20px;
+    margin-right: 10px; /* テキストとの間隔 */
+    vertical-align: middle;
+}
+
+
+/* レスポンシブデザイン（小さい画面で調整） */
+@media (max-width: 768px) {
+    #google-login-btn {
+        font-size: 14px; /* 小さい画面では文字を少し小さく */
+        padding: 10px 15px;
+    }
+    .google-icon {
+        width: 18px; /* アイコンも少し小さく */
+        height: 18px;
+    }
+}
+
+
+/* 入力項目のコンテナ */
+.input-items {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 20px;
+    margin-bottom: 20px;
+}
+
+.input-items div {
+    display: flex;
+    flex-direction: column;
+}
+
+label {
+    font-weight: bold;
+    margin-bottom: 8px;
+    color: #246dc8;
+}
+
+input[type="text"],
+input[type="date"],
+input[type="number"] {
+    padding: 10px 16px;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    font-size: 14px;
+    background-color: #f9f9f9;
+    transition: all 0.3s ease;
+}
+
+input[type="text"]:focus,
+input[type="date"]:focus,
+input[type="number"]:focus {
+    border-color: #246dc8;
+    outline: none;
+    background-color: #f0f7fc;
+}
+
+/* ボタン */
+button {
+    padding: 10px 20px;
+    background-color: #246dc8;
+    color: white;
+    border: none;
+    border-radius: 8px;
+    font-size: 14px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+button:hover {
+    background-color: #1e579b;
+}
+
+/* テーブル */
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+}
+
+thead {
+    background-color: #246dc8;
+    color: white;
+}
+
+th, td {
+    padding: 8px;
+    text-align: center;
+    border: 1px solid #ddd;
+}
+
+tbody tr:nth-child(even) {
+    background-color: #f9f9f9;
+}
+
+tbody tr:hover {
+    background-color: #f1f7fc;
+}
+
+/* 承認者アクションボタン */
+.approve-btn, .reject-btn {
+    padding: 8px 16px;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    font-weight: bold;
+    font-size: 14px;
+}
+
+.approve-btn {
+    background-color: #4caf50;
+    color: white;
+}
+
+.approve-btn:hover {
+    background-color: #45a049;
+}
+
+.reject-btn {
+    background-color: #e74c3c;
+    color: white;
+}
+
+.reject-btn:hover {
+    background-color: #d63b2e;
+}
+
+/* フッター */
+footer {
+    background-color: #246dc8;
+    color: white;
+    width: 100%;
+    text-align: center;
+    padding: 10px 0; /* フッターを細く */
+    font-size: 12px; /* 上品な小さめフォント */
+    position: fixed; /* 下に固定 */
+    bottom: 0;
+    box-shadow: 0px -2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.ratio-yellow-bg {
+    background-color: #ffcc00;
+    color: #333;
+    padding: 10px;
+    border-radius: 8px;
+    font-weight: bold;
+}
+
+/* ボットメッセージを強調 */
+.bot-message {
+    align-self: flex-start;
+    background-color: #f0f7fc; /* 柔らかい青 */
+    color: #246dc8; /* RATIOブルー */
+    font-weight: bold;
+    font-size: 16px; /* 少し大きくして目立たせる */
+    border-left: 4px solid #246dc8; /* 左側にアクセント */
+    padding: 10px 12px; /* 余白を広めに */
+    border-radius: 12px; /* 丸みを強調 */
+}
+
+/* アイコン用のスタイル */
+.message-icon {
+    width: 40px; /* アイコンの横幅 */
+    height: 40px; /* アイコンの高さ */
+    border-radius: 50%; /* 丸くする */
+    background-size: cover; /* アイコン全体を覆う */
+    background-position: center; /* 中央に配置 */
+    margin-right: 10px; /* テキストとの間隔 */
+}
+
+/* メッセージの基本スタイル */
+.message {
+    display: flex; /* フレックスボックスで配置 */
+    align-items: flex-start; /* 垂直方向で上揃え */
+    margin: 10px 0;
+}
+
+/* ボットメッセージのアイコン */
+.message-icon {
+    width: 40px; /* アイコンの幅 */
+    height: 40px; /* アイコンの高さ */
+    border-radius: 50%; /* 丸くする */
+    background-size: cover; /* アイコン全体を表示 */
+    background-position: center; /* 中央揃え */
+    margin-right: 10px; /* 吹き出しとの間隔 */
+}
+
+/* メッセージのテキスト部分 */
+.message-text {
+    max-width: 80%;
+    padding: 10px;
+    border-radius: 10px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+/* ボットメッセージのスタイル */
+.bot-message {
+    flex-direction: row; /* アイコンが左側に来るよう設定 */
+    background-color: #f0f7fc; /* 背景色 */
+    color: #246dc8; /* テキストの色 */
+    font-weight: bold;
+    font-size: 16px;
+}
+
+/* ユーザーメッセージ（アイコンなし） */
+.user-message {
+    align-self: flex-end;
+    color: white;
+    border-radius: 10px; /* 角を丸くする */
+}
